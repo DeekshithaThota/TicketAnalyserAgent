@@ -1,0 +1,381 @@
+[
+7 items
+0
+: 
+{
+2 items
+"type"
+: 
+"system"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+" You are a learner, Based on the output given by ticket analyser and its corresponding Human feedback,you do the following things:
+        Take the existing rules using rules_retriever
+        1. Create a set of rules the ticket analyser should follow if there aren't any 
+        2. add a set of rules for existing rules if the human feedback contains new input
+        3. Tweak the existing rules based on human feedback
+        4. Do not add duplicate rules, if a rule is already present in the existing rules then do not add it.
+        
+        and save it using rules_saver into a file
+        If Human is not provided just look at the retrieved riles and check if you can add some thing based on analysers output
+        Analyzer does these things:
+        takes data :
+            ticket_id
+            customer_tier 
+            subject
+            message
+            previous_tickets
+            monthly_revenue 
+            account_age_daysBased on the information related to the support ticket calculates importance and analyses textDecides the urgency of the issue,Minimum and Maximum time to be taken to resolve the ticketAnd decides whether the ticket needs to be routed as high priority, low priority or medium priority.Also decides whether the ticket needs to be routed to technical team or Developers or Devops team or finance team or business stakeholders or
+         can be solved by chatbot which clears the customer queries and explains the customer about the app"
+,
+}
+}
+1
+: 
+{
+2 items
+"type"
+: 
+"user"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+"This is the result of ticket analyzer *   **Urgency:** Low
+*   **Priority:** Medium
+*   **Team:** Developers
+*   **Reason:** The issue is a minor UI misalignment (low urgency). Given the customer is enterprise, the priority is set to medium. The ticket is routed to the developers team since it involves a visual bug.
+"
+,
+}
+}
+2
+: 
+{
+2 items
+"type"
+: 
+"tool_request"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"tool_request"
+,
+"content"
+: 
+[
+2 items
+0
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+"Okay, I will review the existing rules and see if I can add any new rules based on the analyzer's output.
+"
+,
+}
+1
+: 
+{
+3 items
+"type"
+: 
+"function"
+,
+"id"
+: 
+"pyd_ai_1526e05037524b258e29a9be5edc5abc"
+,
+"function"
+: 
+{
+2 items
+"name"
+: 
+"rules_retriever"
+,
+"arguments"
+: 
+{
+}
+0 items
+}
+}
+]
+}
+}
+3
+: 
+{
+2 items
+"type"
+: 
+"tool_response"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"tool_response"
+,
+"content"
+: 
+{
+6 items
+"content"
+: 
+"1.  Urgency Assessment:
+    *   Low urgency should be assigned to issues that do not block functionality.
+    *   UI misalignments are generally considered low urgency.
+
+2.  Priority Assessment:
+    *   Medium priority should be assigned to UI issues, especially for enterprise customers.
+    *   Customer tier and monthly revenue should be considered when determining priority. High-value customers generally warrant higher priority.
+
+3.  Team Routing:
+    *   Developers should be assigned to tickets involving visual bugs or code adjustments.
+    *   Chatbots are not suitable for resolving code-related issues.
+
+4.  Resolution Time:
+    *   For minor UI issues, a resolution time of 4-24 hours is appropriate.
+    *   The minimum resolution time should account for quick fixes, while the maximum allows for testing and deployment.1.  Urgency Assessment:
+    *   Low urgency should be assigned to issues that do not block functionality.
+    *   UI misalignments are generally considered low urgency.
+
+"
+,
+"role"
+: 
+"tool"
+,
+"id"
+: 
+"pyd_ai_1526e05037524b258e29a9be5edc5abc"
+,
+"name"
+: 
+"rules_retriever"
+,
+"gen_ai.message.index"
+: 
+2
+,
+"event.name"
+: 
+"gen_ai.tool.message"
+,
+}
+}
+}
+4
+: 
+{
+2 items
+"type"
+: 
+"tool_request"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"tool_request"
+,
+"content"
+: 
+[
+2 items
+0
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+"The existing rules cover the main points from the analyzer output. However, I can make the rules more specific.
+
+Here's what I'll do:
+
+*   Add a rule specifying that enterprise customers should have a higher priority.
+*   Add a rule specifying that visual bug tickets should be routed to the development team.
+
+Here's the updated set of rules:
+
+```
+1.  Urgency Assessment:
+    *   Low urgency should be assigned to issues that do not block functionality.
+    *   UI misalignments are generally considered low urgency.
+
+2.  Priority Assessment:
+    *   Medium priority should be assigned to UI issues.
+    *   Enterprise customers should be given higher priority.
+    *   Customer tier and monthly revenue should be considered when determining priority. High-value customers generally warrant higher priority.
+
+3.  Team Routing:
+    *   Developers should be assigned to tickets involving visual bugs or code adjustments.
+    *   Tickets related to visual bugs should be routed to the development team.
+    *   Chatbots are not suitable for resolving code-related issues.
+
+4.  Resolution Time:
+    *   For minor UI issues, a resolution time of 4-24 hours is appropriate.
+    *   The minimum resolution time should account for quick fixes, while the maximum allows for testing and deployment.
+```
+
+Now I'll save the updated rules.
+"
+,
+}
+1
+: 
+{
+3 items
+"type"
+: 
+"function"
+,
+"id"
+: 
+"pyd_ai_6ad4fb4ccba44afe9673eb62f26b3078"
+,
+"function"
+: 
+{
+2 items
+"name"
+: 
+"rules_saver"
+,
+"arguments"
+: 
+{
+1 item
+"rules"
+: 
+"1.  Urgency Assessment:
+    *   Low urgency should be assigned to issues that do not block functionality.
+    *   UI misalignments are generally considered low urgency.
+
+2.  Priority Assessment:
+    *   Medium priority should be assigned to UI issues.
+    *   Enterprise customers should be given higher priority.
+    *   Customer tier and monthly revenue should be considered when determining priority. High-value customers generally warrant higher priority.
+
+3.  Team Routing:
+    *   Developers should be assigned to tickets involving visual bugs or code adjustments.
+    *   Tickets related to visual bugs should be routed to the development team.
+    *   Chatbots are not suitable for resolving code-related issues.
+
+4.  Resolution Time:
+    *   For minor UI issues, a resolution time of 4-24 hours is appropriate.
+    *   The minimum resolution time should account for quick fixes, while the maximum allows for testing and deployment."
+,
+}
+}
+}
+]
+}
+}
+5
+: 
+{
+2 items
+"type"
+: 
+"tool_response"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"tool_response"
+,
+"content"
+: 
+{
+6 items
+"content"
+: 
+null
+,
+"role"
+: 
+"tool"
+,
+"id"
+: 
+"pyd_ai_6ad4fb4ccba44afe9673eb62f26b3078"
+,
+"name"
+: 
+"rules_saver"
+,
+"gen_ai.message.index"
+: 
+4
+,
+"event.name"
+: 
+"gen_ai.tool.message"
+,
+}
+}
+}
+6
+: 
+{
+2 items
+"type"
+: 
+"assistant"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+"I have saved the updated rules.
+"
+,
+}
+}
+]

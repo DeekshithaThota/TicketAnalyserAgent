@@ -1,0 +1,195 @@
+
+5 items
+0
+: 
+{
+2 items
+"type"
+: 
+"system"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+" You are a Support ticket analyzer and router,
+        data :
+            ticket_id = SUP-003
+            customer_tier = enterprise
+            subject= Minor UI issue 
+            message = Hi team, just discovered the numbers are slightly misaligned in dashboard.
+            previous_tickets= 250
+            monthly_revenue = 25000
+            account_age_days= 768Based on the information related to the support ticket Decide the urgency of the issue,Minimum and Maximum time to be taken to resolve the ticketAnd decide whether the ticket needs to be routed as high priority, low priority or medium priority.Also decide whether the ticket needs to be routed to technical team or Developers or Devops team or finance team or business stakeholders or can be solved by chatbot which clears the customer queries and explains the customer about the appcheck whether the analysis you did is accepted by the rules by retrieving the rules using rules_retrieverYou must output the urgency, priority for the ticket and concerned team for the ticket and brief of reason behind it"
+,
+}
+}
+1
+: 
+{
+2 items
+"type"
+: 
+"user"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+"Be clear and concise"
+,
+}
+}
+2
+: 
+{
+2 items
+"type"
+: 
+"tool_request"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"tool_request"
+,
+"content"
+: 
+[
+1 item
+0
+: 
+{
+3 items
+"id"
+: 
+"pyd_ai_c3f238f256764c30840350b08d1e8bff"
+,
+"type"
+: 
+"function"
+,
+"function"
+: 
+{
+2 items
+"name"
+: 
+"rules_retriever"
+,
+"arguments"
+: 
+{
+}
+0 items
+}
+}
+]
+}
+}
+3
+: 
+{
+2 items
+"type"
+: 
+"tool_response"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"tool_response"
+,
+"content"
+: 
+{
+6 items
+"content"
+: 
+"1.  Urgency Assessment:
+    *   Low urgency should be assigned to issues that do not block functionality.
+    *   UI misalignments are generally considered low urgency.
+
+2.  Priority Assessment:
+    *   Medium priority should be assigned to UI issues, especially for enterprise customers.
+    *   Customer tier and monthly revenue should be considered when determining priority. High-value customers generally warrant higher priority.
+
+3.  Team Routing:
+    *   Developers should be assigned to tickets involving visual bugs or code adjustments.
+    *   Chatbots are not suitable for resolving code-related issues.
+
+4.  Resolution Time:
+    *   For minor UI issues, a resolution time of 4-24 hours is appropriate.
+    *   The minimum resolution time should account for quick fixes, while the maximum allows for testing and deployment.1.  Urgency Assessment:
+    *   Low urgency should be assigned to issues that do not block functionality.
+    *   UI misalignments are generally considered low urgency.
+
+"
+,
+"role"
+: 
+"tool"
+,
+"id"
+: 
+"pyd_ai_c3f238f256764c30840350b08d1e8bff"
+,
+"name"
+: 
+"rules_retriever"
+,
+"gen_ai.message.index"
+: 
+2
+,
+"event.name"
+: 
+"gen_ai.tool.message"
+,
+}
+}
+}
+4
+: 
+{
+2 items
+"type"
+: 
+"assistant"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+"*   **Urgency:** Low
+*   **Priority:** Medium
+*   **Team:** Developers
+*   **Reason:** The issue is a minor UI misalignment (low urgency). Given the customer is enterprise, the priority is set to medium. The ticket is routed to the developers team since it involves a visual bug.
+"
+,
+}
+}

@@ -1,0 +1,76 @@
+[
+3 items
+0
+: 
+{
+2 items
+"type"
+: 
+"system"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+" You are a safeguard, who checks the output given by ticket analyzer which includes the output and reasoning behind it,
+         You need to check whether the analyzer was confident about the output or ambiguos, 
+        if the output is unclear or the reasoning couldn't explain the output properly you would send a message `AMBIGUOS` else `CLEAR` "
+,
+}
+}
+1
+: 
+{
+2 items
+"type"
+: 
+"user"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+"This is the result of ticket analyzer *   **Urgency:** Low
+*   **Priority:** Medium
+*   **Team:** Developers
+*   **Reason:** The issue is a minor UI misalignment (low urgency). Given the customer is enterprise, the priority is set to medium. The ticket is routed to the developers team since it involves a visual bug.
+"
+,
+}
+}
+2
+: 
+{
+2 items
+"type"
+: 
+"assistant"
+,
+"content"
+: 
+{
+2 items
+"type"
+: 
+"text"
+,
+"content"
+: 
+"CLEAR
+"
+,
+}
+}
+]
